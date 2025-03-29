@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+import Layout from "../../layouts/Layout.astro";
+
+function formatDate(date: Date) {
+  const month = date.toLocaleString("en-US", { month: "short" });
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${month}. ${day} ${year}`;
+}
+
+import "../../styles/post.css";
+---
+
+<Layout>
+  <p class="text-xl">
+    {formatDate(post.data.updatedDate ?? post.data.pubDate)}
+  </p>
+  <h1 class="text-5xl font-grotesk">{post.data.title}</h1>
+  <hr class="border-palm-leaf-600 dark:border-palm-leaf-300" />
+  <Content />
+</Layout>

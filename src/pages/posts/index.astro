@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts", ({ data }) => {
+  return data.draft !== true;
+});
+const dir = "descending" === "descending" ? 1 : -1;
+const postsSorted = posts.sort((a, b) => {
+  const aDate = new Date(a.data.updatedDate ?? a.data.pubDate).valueOf();
+  const bDate = new Date(b.data.updatedDate ?? b.data.pubDate).valueOf();
+  return (bDate - aDate) * dir;
+});
+function formatDate(date: Date) {
+  const month = date.toLocaleString("en-US", { month: "short" });
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${month}. ${day} ${year}`;
+}
+---
+
+<Layout>
+  <h1 class="text-4xl mb-2 font-grotesk">All posts</h1>
+
+  {
+    postsSorted.map((post) => (
+      <a href={"/posts/" + post.id} class="p-2">
+        <p class="text-sm mb-1">{formatDate(post.data.updatedDate ?? post.data.pubDate)}</p>
+        <h3 class="text-xl font-bold font-grotesk mb-1">
+          <p class="text-palm-leaf-800 dark:text-palm-leaf-400">
+            {post.data.title}
+          </p>
+        </h3>
+        <p>{post.data.brief}</p>
+      </a>
+      <hr class="border-palm-leaf-600 dark:border-palm-leaf-300" />
+    ))
+  }
+</Layout>
