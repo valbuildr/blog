@@ -1,0 +1,32 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>valblog</title>
+  </head>
+  <body
+    class="min-h-screen bg-palm-leaf-200 dark:bg-palm-leaf-950 dark:text-white flex flex-col justify-between w-screen"
+  >
+    <Navbar />
+    <div class="max-w-screen-xl mx-auto px-4 mb-auto w-full">
+      <!-- Remove when ready for full public release. -->
+      <div
+        class="border border-red-950 dark:border-red-200 rounded-lg p-2 font-grotesk mb-4 bg-red-200 dark:bg-red-950"
+      >
+        <span class="font-bold">This site is in alpha!</span> Things are VERY likely
+        to change.
+      </div>
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

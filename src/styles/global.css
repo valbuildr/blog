@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans/regular.ttf");
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans/italic/regular.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gelasio";
+  src: url("/fonts/gelasio/regular.ttf");
+}
+@font-face {
+  font-family: "Gelasio";
+  src: url("/fonts/gelasio/italic/regular.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/space-grotesk/regular.ttf");
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/space-mono/regular.ttf");
+  font-weight: 100 200 300 400 500;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/space-mono/bold.ttf");
+  font-weight: 600 700 800 900;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/space-mono/italic/regular.ttf");
+  font-weight: 100 200 300 400 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/space-mono/italic/bold.ttf");
+  font-weight: 600 700 800 900;
+  font-style: italic;
+}
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: Gelasio, ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-grotesk: "Space Grotesk", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-palm-leaf-50: #f1fce9;
+  --color-palm-leaf-100: #e0f7d0;
+  --color-palm-leaf-200: #c4efa7;
+  --color-palm-leaf-300: #9ee373;
+  --color-palm-leaf-400: #7cd447;
+  --color-palm-leaf-500: #5cb929;
+  --color-palm-leaf-600: #44931d;
+  --color-palm-leaf-700: #35711a;
+  --color-palm-leaf-800: #2e5a1a;
+  --color-palm-leaf-900: #294c1b;
+  --color-palm-leaf-950: #17360c;
+}
